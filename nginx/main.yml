@@ -1,0 +1,13 @@
+---
+- name: install nginx in ubuntu 
+  hosts: remote-server
+  become: true
+  
+  tasks:
+    - name: installing ngnix
+      include_role: 
+        name: install_nginx
+
+    - name: uninstalling ngnix
+      include_role: 
+        name: uninstall_nginx

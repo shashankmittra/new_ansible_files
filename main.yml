@@ -1,0 +1,9 @@
+---
+- name: unzipping a certain file in ubuntu 
+  hosts: remote-server
+  become: true
+  
+  tasks:
+    - name: installing Debian pacakages
+      include_role: 
+        name: install_zip

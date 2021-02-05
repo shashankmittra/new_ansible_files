@@ -1,0 +1,12 @@
+---
+- name: uninstall nginx for Ubuntu
+  when: ansible_os_family == "Debian"
+  apt:
+    name: nginx
+    state: absent
+
+- name: uninstall nginx for RedHat
+  when: ansible_os_family == "RedHat"
+  yum: 
+    name: nginx
+    state: absent
