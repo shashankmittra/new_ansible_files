@@ -1,0 +1,32 @@
+---
+- name: install dependencies
+  yum:
+    name: "{{item}}"
+    state: present
+  loop:
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: Add Docker GPG key.
+  rpm_key:
+    key: https://download.docker.com/linux/centos/gpg
+    state: present
+
+- name: add docker repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: install docker
+  yum:
+    name: "{{item}}"
+    state: latest
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io

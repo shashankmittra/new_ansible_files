@@ -1,0 +1,8 @@
+---
+- hosts: local-server
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  roles:
+    - install_docker
