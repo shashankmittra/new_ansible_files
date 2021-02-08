@@ -11,13 +11,13 @@
 
 - name: Add Docker GPG key.
   rpm_key:
-    key: https://download.docker.com/linux/centos/gpg
+    key: "{{ rpm_key_redhat }}"
     state: present
 
 - name: add docker repo
   get_url:
-    url: https://download.docker.com/linux/centos/docker-ce.repo
-    dest: '/etc/yum.repos.d/docker-ce.repo'
+    url: "{{ redhat_url }}"
+    dest: "{{ redhat_dest }}"
     owner: root
     group: root
     mode: 0644

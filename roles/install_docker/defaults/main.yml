@@ -1,2 +1,8 @@
 ---
-# defaults file for install_docker
+gpg_url_ubuntu: https://download.docker.com/linux/ubuntu/gpg
+docker_repo_ubuntu: deb https://download.docker.com/linux/ubuntu bionic stable
+
+# for redhat
+rpm_key_redhat: https://download.docker.com/linux/centos/gpg
+redhat_url: https://download.docker.com/linux/centos/docker-ce.repo
+redhat_dest: '/etc/yum.repos.d/docker-ce.repo'
