@@ -1,6 +1,0 @@
-[local-server]
-10.0.2.15 ansible_connection=local
-
-[remote-server]
-13.232.78.236 ansible_user=ubuntu
-15.206.174.45 ansible_user=ec2-user

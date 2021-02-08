@@ -1,0 +1,5 @@
+---
+- name: ansible create directory example
+  file:
+    path: /home/ubuntu/roles_direc
+    state: directory

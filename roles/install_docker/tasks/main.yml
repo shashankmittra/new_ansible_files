@@ -1,0 +1,30 @@
+---
+
+- include_tasks: setup-debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: enable services
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  notify: restart docker
+
+- name: pushing some files
+  copy: 
+    src: test.txt
+    dest: /home/ubuntu/roles_direc/
+
+- name: template file onto remote hosts
+  template:
+    src: "{{ item }}.j2"
+    dest: "/home/ubuntu/{{ item }}"
+    owner: root
+    group: root
+    mode: 0600
+  become: true
+  loop:
+    - my_app
