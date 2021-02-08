@@ -7,11 +7,11 @@
   when: ansible_os_family == 'RedHat'
 
 - name: enable services
-  service:
-    name: docker
-    state: started
-    enabled: yes
-  notify: restart docker
+  debug:
+    msg: "enabling services"
+  notify:
+    - enable services
+    - restart docker
 
 - name: pushing some files
   copy: 
